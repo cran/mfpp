@@ -1,4 +1,4 @@
-3957af1cd963e7c6564b94d8f5bec14a *DESCRIPTION
+281af3ac2e021399a43f5524a75fd423 *DESCRIPTION
 88584a433c7d752901fb757690754ffa *NAMESPACE
 e17c1ab5ed3b4d86ce6160fae2bcf4f1 *R/generatepdm.r
 20aec8d1601821c0df763afcf08eb1a5 *R/get.structures.R
@@ -21,15 +21,15 @@ caa394a892851dbdb7edb370cf209f04 *R/truncpdm.R
 4751a549bd79b9d580b435bf4cc5cee8 *README.md
 2866358f171c4d0e70e72a965b095dfd *data/Batselier.rda
 437fb5542732d45f0f15ddb70c63b990 *data/Boctor.rda
-0cb6c88df1274744ab9f52ec389d06f3 *inst/CITATION
-618189056575f294084f9cba62bdbf4c *inst/NEWS
-1f9c50fe3574aceaf8313c7d22f1490d *man/Batselier.Rd
+cf0db551919d2bdd23fdc5beafe5c5cc *inst/CITATION
+a8de4f1f9eecb13b8f1abe4a4c756e72 *inst/NEWS
+47f2cb8a287be48534fa4e7ba1fec963 *man/Batselier.Rd
 c56c9fcee5080c29b4bea651669ffb97 *man/Boctor.Rd
 cdcd74e1b1326e9701f26d29e9dd035c *man/generatepdm.Rd
 5cde982faa0ab7d3bed682f21ae58833 *man/get.structures.Rd
 79106c2649cd810f3e4195010c3644fc *man/is.flexible.Rd
 1fad9f5c8d1c7b73a80a080d8e649407 *man/maxscore_PEM.Rd
-9a5fc88a1a3547782763efde57c68677 *man/mfpp.Rd
+8317ed151c43521e431d9ac2ddeda4f8 *man/mfpp.Rd
 23eddd760b05a9f4115e86fedae325ef *man/minscore_PEM.Rd
 0f34fd07798d13266cf63b3dcc0c9258 *man/paretores.Rd
 8346350778d5681c88343e45abda3c64 *man/percent.Rd
