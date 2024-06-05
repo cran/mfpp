@@ -5,12 +5,11 @@
 #  Written by: Zsolt T. Kosztyan, Aamir Saghir                                #
 #              Department of Quantitative Methods                             #
 #              University of Pannonia, Hungary                                #
-#              kzst@gtk.uni-pannon.hu                                         #
+#              kosztyan.zsolt@gtk.uni-pannon.hu                               #
 #                                                                             #
-# Last modified: May 2022                                                     #
+# Last modified: June 2024                                                    #
 #-----------------------------------------------------------------------------#
 #' @export
-#' @importFrom stats na.omit
 percent<- function(PDM,type=c("c","q","qd","r","s","t"),w=2,Rs=2,ratio=1){
   if (!requireNamespace("pracma", quietly = TRUE)) {
     stop(
@@ -106,9 +105,9 @@ percent<- function(PDM,type=c("c","q","qd","r","s","t"),w=2,Rs=2,ratio=1){
       if (w > 1)
         for (i in seq(1,pracma::size(rD,2),w)) {
           rmin <- matrix(Rfast::colMins(t(rD[,i:(i+w-1)]),value=TRUE))
-          rmin <- na.omit(rmin)
+          rmin <- stats::na.omit(rmin)
           rmax <- matrix(Rfast::colMaxs(t(rD[,i:(i+w-1)]),value=TRUE))
-          rmax <- na.omit(rmax)
+          rmax <- stats::na.omit(rmax)
           r <- cbind(r,rmin)
           R <- cbind(R,rmax)
         }  else {
@@ -119,7 +118,7 @@ percent<- function(PDM,type=c("c","q","qd","r","s","t"),w=2,Rs=2,ratio=1){
       t <- matrix(Rfast::rowMins(PDM[,(pracma::size(PDM,1)+1):(pracma::size(PDM,1)+w)], value=TRUE))   #max R when min T
       EST <- tpt(DSM,t)[["EST"]]                                        #Optimization are within [EST,LST]
       LST <- tpt(DSM,t)[["LST"]]
-      TPRmax=t(matrix(pmax(tpr(EST,DSM,t,R),tpr(LST,DSM,t,R))))
+      TPRmax=t(matrix(pmax(tpr(EST,DSM,t,as.matrix(R)),tpr(LST,DSM,t,as.matrix(R)))))
       if (ratio==1.0){
         CR=TPRmax
         colnames(CR)<-paste("R",1:ncol(CR),sep="_")
@@ -127,7 +126,7 @@ percent<- function(PDM,type=c("c","q","qd","r","s","t"),w=2,Rs=2,ratio=1){
         Const$CR<-CR
         }  else {
           #calculation of TPRmin
-          TPRmin=paretores(dsm,T,r)$RD
+          TPRmin=paretores(dsm,T,as.matrix(r))$RD
           Const$CR=TPRmin+ratio*(TPRmax-TPRmin)}
 
     }else{
@@ -143,9 +142,9 @@ percent<- function(PDM,type=c("c","q","qd","r","s","t"),w=2,Rs=2,ratio=1){
         if (w > 1)
           for (i in seq(1,pracma::size(rD,2),w)) {
             rmin <- matrix(Rfast::colMins(t(rD[,i:(i+w-1)]),value=TRUE))
-            rmin <- na.omit(rmin)
+            rmin <- stats::na.omit(rmin)
             rmax <- matrix(Rfast::colMaxs(t(rD[,i:(i+w-1)]),value=TRUE))
-            rmax <- na.omit(rmax)
+            rmax <- stats::na.omit(rmax)
             r <- cbind(r,rmin)
             R <- cbind(R,rmax)
           }
@@ -157,7 +156,7 @@ percent<- function(PDM,type=c("c","q","qd","r","s","t"),w=2,Rs=2,ratio=1){
         t <- matrix(Rfast::rowMins(PDM[,(pracma::size(PDM,1)+1):(pracma::size(PDM,1)+w)], value=TRUE))   #max R when min T
         EST <- tpt(DSM,t)[["EST"]]                                        #Optimization are within [EST,LST]
         LST <- tpt(DSM,t)[["LST"]]
-        TPRmax=t(matrix(pmax(tpr(EST,DSM,t,R),tpr(LST,DSM,t,R))))
+        TPRmax=t(matrix(pmax(tpr(EST,DSM,t,as.matrix(R)),tpr(LST,DSM,t,as.matrix(R)))))
         if (ratio==1.0){
           CR=TPRmax
           colnames(CR)<-paste("R",1:ncol(CR),sep="_")
@@ -165,7 +164,7 @@ percent<- function(PDM,type=c("c","q","qd","r","s","t"),w=2,Rs=2,ratio=1){
           Const$CR<-CR
         }  else {
           #calculation of TPRmin
-            TPRmin=paretores(dsm,T,r)$RD
+            TPRmin=paretores(dsm,T,as.matrix(r))$RD
             Const$CR<-TPRmin+ratio*(TPRmax-TPRmin)}
       }
     }

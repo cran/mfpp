@@ -5,26 +5,26 @@
 #  Written by: Zsolt T. Kosztyan, Aamir Saghir                                #
 #              Department of Quantitative Methods                             #
 #              University of Pannonia, Hungary                                #
-#              kzst@gtk.uni-pannon.hu                                         #
+#              kosztyan.zsolt@gtk.uni-pannon.hu                               #
 #                                                                             #
-# Last modified: May 2022                                                     #
+# Last modified: June 2024                                                    #
 #-----------------------------------------------------------------------------#
 #' @export
-phase3<- function(x,p=0.10,s=0.50){
+phase3<- function(x,p=0.10,s=0.50,nW=0){
   if (!requireNamespace("pracma", quietly = TRUE)) {
     stop(
       "Package \"pracma\" must be installed to use this function.",
       call. = FALSE
     )
   }
-  if ("PDM_list" %in% class(x)){
+  if (methods::is(x,"PDM_list")){
     PDM<-x$PDM
   }else{
-    if (("PDM_matrix" %in% class(x))||("matrix" %in% class(x))||("array" %in% class(x))||("data.frame" %in% class(x))){
+    if ((methods::is(x,"PDM_matrix"))||(methods::is(x,"matrix"))||(methods::is(x,"array"))||(methods::is(x,"data.frame"))){
       PDM<-x
     }else{
       stop(
-        "truncpdm works only on matix, PDM_matrix, and PDM_list.",
+        "phase3 works only on matix, PDM_matrix, and PDM_list.",
         call. = FALSE
       )
     }
@@ -44,11 +44,12 @@ phase3<- function(x,p=0.10,s=0.50){
           PDMout[i,j]=1                  # %Quality should not be greater than 1
       }
     }
-    PDMout[diag(PDMout)==0,] <- 0          #Exluded task demands are also excluded
-    PDMout[1:n, (diag(PDMout)==0)*c(1:n)]<- 0       #Exluded task demands are also excluded
+    PDMout[1:(n-nW),(n+1):m] <- PDM[1:(n-nW),(n+1):m] # Write back for regular tasks
+    PDMout[diag(PDMout)==0,] <- 0        #Exluded task demands are also excluded
+    PDMout[1:n, (diag(PDMout)==0)*c(1:n)]<- 0 #Exluded task demands are also excluded
   }
   class(PDMout)<-"PDM_matrix"
-  if ("PDM_list" %in% class(x)){
+  if (methods::is(x,"PDM_list")){
     x$PDM<-PDMout
     output<-x
     class(output)<-"PDM_list"
