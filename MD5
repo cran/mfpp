@@ -1,4 +1,4 @@
-396dc6d7520df113f22d6076af800805 *DESCRIPTION
+8be29da1405823ba28f0cc52a8c801e6 *DESCRIPTION
 88584a433c7d752901fb757690754ffa *NAMESPACE
 f2997b3a553678c9b3f7ab193ae24b7c *R/generatepdm.r
 96b28c5151c652e3a72e91384f7eeb4c *R/get.structures.R
@@ -11,7 +11,7 @@ b27284b8792afe8c6763a9ff7754436f *R/minscore_PEM.R
 0660a31f109bed8d275e8778339f95f4 *R/phase1.r
 cdcdcf2e07ecc81fca9132c1d2f293f6 *R/phase2.R
 e982e2d59303b814233243302550904c *R/phase3.r
-3f7c081989d7982e205a2d26e90123bf *R/plot.mfpp.R
+1398b304ca56848bb55c3aa378deda82 *R/plot.mfpp.R
 4e98d060040124491a1dfc9c4b938e80 *R/summary.mfpp.R
 ba9f8d3e76f9a3b40c0360076f3c9bba *R/tpc.r
 2e58e3f0bee80e45770ff83840fa3697 *R/tpq.r
@@ -22,7 +22,7 @@ af8ce34c5163af40fdcdbae33af3c84c *README.md
 2866358f171c4d0e70e72a965b095dfd *data/Batselier.rda
 437fb5542732d45f0f15ddb70c63b990 *data/Boctor.rda
 cf0db551919d2bdd23fdc5beafe5c5cc *inst/CITATION
-4bdf6b4bc615e4ab9a4e8356a404816e *inst/NEWS
+318b763c92884be16b8d4b86860788f0 *inst/NEWS
 47f2cb8a287be48534fa4e7ba1fec963 *man/Batselier.Rd
 c56c9fcee5080c29b4bea651669ffb97 *man/Boctor.Rd
 5ce2da5103418c165891b8fe90b9dea8 *man/generatepdm.Rd

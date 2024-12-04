@@ -1,7 +1,7 @@
 Package: mfpp
 Type: Package
 Title: 'Matrix-Based Flexible Project Planning'
-Version: 0.0.7
+Version: 0.0.8
 Authors@R: c(
     person("Zsolt T.","Kosztyan",email="kosztyan.zsolt@gtk.uni-pannon.hu", role = c("aut", "cre")),
     person("Aamir", "Sagir", role = "aut"))
@@ -17,8 +17,8 @@ Imports: pracma, nsga2R, igraph, genalg, ggplot2, reshape2, methods,
 RoxygenNote: 7.3.1
 Suggests: rmarkdown, knitr, Matrix
 NeedsCompilation: no
-Packaged: 2024-06-05 17:07:02 UTC; kzst
+Packaged: 2024-12-04 14:51:41 UTC; kzst
 Author: Zsolt T. Kosztyan [aut, cre],
   Aamir Sagir [aut]
 Repository: CRAN
-Date/Publication: 2024-06-05 17:20:02 UTC
+Date/Publication: 2024-12-04 15:30:06 UTC
